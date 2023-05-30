@@ -16,7 +16,7 @@ def cadastrar_usuario():
     senha_hash = hashlib.md5(senha.encode()).hexdigest()
     
     # Cria uma string com os dados do usuário
-    usuario = f"Nome: {nome}\nSenha: {senha_hash}\n"
+    usuario = f"\n{nome},{senha_hash}\n"
     
     # Abre o arquivo para adicionar o usuário
     with open("usuarios.txt", "a") as arquivo:
@@ -24,26 +24,32 @@ def cadastrar_usuario():
     
     print("Usuário cadastrado com sucesso.")
 
+
 def autenticar_usuario():
     nome = input("Digite o nome do usuário: ")
     senha = input("Digite a senha do usuário: ")
-    
+
     senha_hash = hashlib.md5(senha.encode()).hexdigest()
-    
+    senhaString = str(senha_hash)
+    print(type(senhaString))
+
+
     # Abre o arquivo para ler os usuários cadastrados
     with open("usuarios.txt", "r") as arquivo:
         usuarios = arquivo.readlines()
-    
-    # Verifica se o usuário e a senha estão corretos
+
+    # Verifica se o usuário e senha estão cadastrados
     for usuario in usuarios:
-        nome_cadastrado = usuario.split("\n")[0].split(": ")[1]
-        senha_cadastrada = usuario.split("\n")[1].split(": ")[1]
-        
-        if nome == nome_cadastrado and senha_hash == senha_cadastrada:
-            print("Usuário autenticado com sucesso.")
+        usuario_info = usuario.strip().split(",")
+        nome_cadastrado = usuario_info[0]
+        senha_cadastrada = usuario_info[1]
+
+        if nome == nome_cadastrado and senhaString == senha_cadastrada:
+            print("Usuário autenticado com sucesso!")
             return
-    
-    print("Usuário ou senha incorretos.")
+
+    print("Usuário não encontrado ou senha incorreta.")
+
 
 # Menu principal
 while True:

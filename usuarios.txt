@@ -1,12 +1,9 @@
-Nome: thomas
-Senha: 81dc9bdb52d04dc20036dbd8313ed055
-Nome: nicolas
-Senha: d93591bdf7860e1e4ee2fca799911215
-Nome: noah
-Senha: fca0789e7891cbc0583298a238316122
-Nome: gabriel
-Senha: 89d4402dc03d3b7318bbac10203034ab
-Nome: angelo
-Senha: c8dfece5cc68249206e4690fc4737a8d
-Nome: teste
-Senha: 0000
+thomas,81dc9bdb52d04dc20036dbd8313ed055
+nicolas,d93591bdf7860e1e4ee2fca799911215
+noah,fca0789e7891cbc0583298a238316122
+gabriel,89d4402dc03d3b7318bbac10203034ab
+angelo,c8dfece5cc68249206e4690fc4737a8d
+teste,0000
+Eduardo,7bfa32686d200c64cb46de03ac2eac0d
+
+PadrePascal,752d2c9ecfe079e5e5f3539f4d750e5c
