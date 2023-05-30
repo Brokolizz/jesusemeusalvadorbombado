@@ -7,3 +7,13 @@ teste,0000
 Eduardo,7bfa32686d200c64cb46de03ac2eac0d
 
 PadrePascal,752d2c9ecfe079e5e5f3539f4d750e5c
+
+Pessoal,59eb5dd36914c29b299c84b7ddaf08ec
+
+Pessoal,aea70baaa374c4689ca1b424cc7a0dbd
+
+Pessoal,e4d8a5f78bfd561b218e18cc99b892b4
+
+Pessoal,daaf386bc373c2e13b3d76836f9d1bf7
+
+Homer,33ae83066830700d09748445f534f9df

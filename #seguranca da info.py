@@ -1,5 +1,13 @@
 import hashlib
+import re
 
+regex = r'^(?=.*[A-Z])(?=.*\d)(?=.*[\W_])\w{3}.$'
+
+def validar_sequencia(sequencia):
+    if re.match(regex, sequencia):
+        return True
+    else:
+        return False
 def cadastrar_usuario():
     nome = input("Digite o nome do usuário (até 20 caracteres): ")
     senha = input("Digite a senha do usuário (4 caracteres): ")
@@ -8,21 +16,24 @@ def cadastrar_usuario():
     if len(nome) > 20:
         print("O nome deve ter até 20 caracteres.")
         return
-    elif len(senha) != 4:
-        print("A senha deve ter exatamente 4 caracteres.")
-        return
+    elif validar_sequencia(senha) == False:
+        print("A senha deve ter uma letra maiuscula, um caracter especial, um número e no máximo 4 de tamanho")
+    else:
+
+        # Gera o hash MD5 da senha
+        senha_hash = hashlib.md5(senha.encode()).hexdigest()
+
+        # Cria uma string com os dados do usuário
+        usuario = f"\n{nome},{senha_hash}\n"
+
+        # Abre o arquivo para adicionar o usuário
+        with open("usuarios.txt", "a") as arquivo:
+            arquivo.write(usuario)
+
+        print("Usuário cadastrado com sucesso.")
+
     
-    # Gera o hash MD5 da senha
-    senha_hash = hashlib.md5(senha.encode()).hexdigest()
-    
-    # Cria uma string com os dados do usuário
-    usuario = f"\n{nome},{senha_hash}\n"
-    
-    # Abre o arquivo para adicionar o usuário
-    with open("usuarios.txt", "a") as arquivo:
-        arquivo.write(usuario)
-    
-    print("Usuário cadastrado com sucesso.")
+
 
 
 def autenticar_usuario():
